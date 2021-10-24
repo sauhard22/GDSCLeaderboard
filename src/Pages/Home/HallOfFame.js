@@ -123,7 +123,13 @@ function HallOfFame() {
                         fontFamily: 'poppins'
                     }}>PROFILE</Typography>
                 </div>
-                {data.map((item, index) => (
+                {data.filter((val) => {
+                    if(searchTerm=== ""){
+                        return val
+                    }else if(val[0].toLowerCase().includes(searchTerm.toLowerCase())){
+                        return val
+                    }
+                }).map((item, index) => (
                     <div key={index} style={{
                         display: 'flex',
                         flexDirection: 'row',
